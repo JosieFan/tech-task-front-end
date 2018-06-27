@@ -16,10 +16,12 @@ class App extends Component {
       latitude: "",
       longitude: "",
       forecast: "",
-      address: ""
+      address: "",
+      tempUnit: "C"
     };
   }
-  // Tp call dark sky api to get forecast then update state
+
+  // To call dark sky api to get forecast then update state
   fetchForecast = (secretKey, latitude, longitude) => {
     axios
       .get(
@@ -60,6 +62,11 @@ class App extends Component {
     });
   };
 
+  // To update selected temperature unit
+  updateTempUnit = updatedUnit => {
+    this.setState({ tempUnit: updatedUnit });
+  };
+
   componentDidMount() {
     // Gets the coordinates and pass it through to fetchForecast and fetchAddress to get data
     navigator.geolocation.getCurrentPosition(position => {
@@ -87,13 +94,19 @@ class App extends Component {
             {this.state.address.postalCode}
           </h1>
           <h2 className="date">
-            {moment.unix(this.state.forecast.time).format("dddd H:mm a")}
+            {moment.unix(this.state.forecast.time).format("dddd h:mm a")}
           </h2>
           <p className="weather-desc">
             {this.state.forecast.summary}
           </p>
-          <WeatherIcon forecastIcon={this.state.forecast.icon} />
-          <CurrentTemp forecastTemp={this.state.forecast.temperature} />
+          <div>
+            <WeatherIcon forecastIcon={this.state.forecast.icon} />
+            <CurrentTemp
+              forecastTemp={this.state.forecast.temperature}
+              tempUnit={this.state.tempUnit}
+              updateTempUnit={this.updateTempUnit}
+            />
+          </div>
         </div>
       </div>
     );

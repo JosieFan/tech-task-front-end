@@ -12,12 +12,37 @@ class CurrentTemp extends React.Component {
     return rounded;
   };
 
+  handleClick = e => {
+    if (this.props.tempUnit === "C") {
+      this.props.updateTempUnit("F");
+    }
+    if (this.props.tempUnit === "F") {
+      this.props.updateTempUnit("C");
+    }
+  };
+
   render() {
+    if (this.props.tempUnit === "C") {
+      return (
+        <div className="temp">
+          {this.toCelsius(this.props.forecastTemp)}
+          <span className="selectedUnitTemp">&deg;C |</span>
+          <a href="#" className="unitTemp" onClick={this.handleClick}>
+            {" "}&deg;F
+          </a>
+        </div>
+      );
+    }
     return (
-      <span className="temp">
-        {this.toCelsius(this.props.forecastTemp)}
-        <span className="degree-celius">&#8451;</span>
-      </span>
+      <div className="temp">
+        {Math.round(this.props.forecastTemp)}
+        <a href="#" className="unitTemp" onClick={this.handleClick}>
+          &deg;C{" "}
+        </a>
+        <span href="#" className="selectedUnitTemp">
+          | &deg;F
+        </span>
+      </div>
     );
   }
 }

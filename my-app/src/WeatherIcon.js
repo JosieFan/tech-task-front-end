@@ -46,17 +46,18 @@ class WeatherIcon extends React.Component {
 
   render() {
     const style = {
-      height: "50px",
-      align: "top"
+      float: "left",
+      height: "80px",
+      width: "80px",
+      align: "bottom"
     };
 
     return (
-      <span style={style}>
-        <img
-          alt="weather"
-          src={this.getWeatherImage(this.props.forecastIcon)}
-        />
-      </span>
+      <img
+        style={style}
+        alt="weather"
+        src={this.getWeatherImage(this.props.forecastIcon)}
+      />
     );
   }
 }

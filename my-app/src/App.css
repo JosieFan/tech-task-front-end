@@ -64,14 +64,23 @@
   margin-bottom: 0;
 }
 
+.selectedUnitTemp {
+  font-weight: bold;
+  font-size: 32pt;
+  vertical-align: text-top;
+  color: black;
+}
+
+.unitTemp {
+  font-size: 32pt;
+  vertical-align: text-top;
+  color: #609;
+  text-decoration: none;
+}
+
 .temp {
   font-size: 5em;
   line-height: 1.5;
-  padding: 0% 3%;
-}
-
-.degree-celius {
-  font-size: 32pt;
-  vertical-align: text-top;
-  font-weight: bold;
+  padding-left: 10px;
+  float: left;
 }
