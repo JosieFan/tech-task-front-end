@@ -14,7 +14,7 @@ class WeatherIcon extends React.Component {
   importAll = r => {
     return r.keys().map(r);
   };
-  // match and get weather icon
+  // To match and get relevant weather icon
   getWeatherImage = weatherDesc => {
     let IconPaths = [
       { name: "clear-day", file: clear },
@@ -24,7 +24,11 @@ class WeatherIcon extends React.Component {
       { name: "sleet", file: sleet },
       { name: "wind", file: cloudywindy02 },
       { name: "fog", file: fog },
-      { name: "cloudy", file: partlycloudy },
+      { name: "partly-cloudy-day", file: partlycloudy },
+      {
+        name: "cloudy",
+        file: partlycloudy
+      },
       {
         name: "partly-cloudy-night",
         file: partlycloudynight

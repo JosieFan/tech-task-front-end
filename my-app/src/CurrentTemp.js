@@ -7,7 +7,7 @@ class CurrentTemp extends React.Component {
     if (Number.isNaN(input)) {
       return "";
     }
-    const output = ((input - 32) * 5) / 9;
+    const output = (input - 32) * 5 / 9;
     const rounded = Math.round(output);
     return rounded;
   };
@@ -15,7 +15,7 @@ class CurrentTemp extends React.Component {
   render() {
     return (
       <span className="temp">
-        {this.toCelsius(this.props.forecastPack)}
+        {this.toCelsius(this.props.forecastTemp)}
         <span className="degree-celius">&#8451;</span>
       </span>
     );
